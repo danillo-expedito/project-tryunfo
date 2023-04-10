@@ -11,9 +11,9 @@ class App extends React.Component {
     this.state = {
       name: '',
       description: '',
-      attr1: '',
-      attr2: '',
-      attr3: '',
+      attr1: 0,
+      attr2: 0,
+      attr3: 0,
       image: '',
       rarity: 'Normal',
       trunfo: false,
@@ -22,13 +22,46 @@ class App extends React.Component {
     };
   }
 
+  handleError() {
+    const { name, description, attr1, attr2, attr3,
+      image, rarity } = this.state;
+
+    const attrMax = 90;
+    const attrMaxSum = 210;
+    let exceeded = false;
+
+    if ((parseFloat(attr1) + parseFloat(attr2) + parseFloat(attr3)) > attrMaxSum) {
+      exceeded = true;
+    }
+
+    const errorCases = [
+      !name.length,
+      !description.length,
+      !image.length,
+      !rarity.length,
+      attr1 > attrMax,
+      attr2 > attrMax,
+      attr3 > attrMax,
+      attr1 < 0,
+      attr2 < 0,
+      attr3 < 0,
+      exceeded,
+    ];
+
+    const fullfilled = errorCases.every((error) => error !== true);
+
+    this.setState({
+      isSaveButtonDisabled: !fullfilled,
+    });
+  }
+
   onInputChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
-    });
+    }, this.handleError);
   }
 
   render() {
