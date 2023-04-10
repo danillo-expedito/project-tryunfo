@@ -17,6 +17,7 @@ class Form extends React.Component {
             data-testid="name-input"
             value={ cardName }
             onChange={ onInputChange }
+            name="name"
           />
         </label>
 
@@ -27,6 +28,7 @@ class Form extends React.Component {
             data-testid="description-input"
             value={ cardDescription }
             onChange={ onInputChange }
+            name="description"
           />
         </label>
 
@@ -38,6 +40,7 @@ class Form extends React.Component {
             data-testid="attr1-input"
             value={ cardAttr1 }
             onChange={ onInputChange }
+            name="attr1"
           />
         </label>
 
@@ -49,6 +52,7 @@ class Form extends React.Component {
             data-testid="attr2-input"
             value={ cardAttr2 }
             onChange={ onInputChange }
+            name="attr2"
           />
         </label>
 
@@ -60,6 +64,7 @@ class Form extends React.Component {
             data-testid="attr3-input"
             value={ cardAttr3 }
             onChange={ onInputChange }
+            name="attr3"
           />
         </label>
 
@@ -71,6 +76,7 @@ class Form extends React.Component {
             data-testid="image-input"
             value={ cardImage }
             onChange={ onInputChange }
+            name="image"
           />
         </label>
 
@@ -81,6 +87,7 @@ class Form extends React.Component {
             data-testid="rare-input"
             value={ cardRare }
             onChange={ onInputChange }
+            name="rarity"
           >
             <option value="normal">Normal</option>
             <option value="raro">Raro</option>
@@ -96,6 +103,7 @@ class Form extends React.Component {
             data-testid="trunfo-input"
             checked={ cardTrunfo }
             onChange={ onInputChange }
+            name="trunfo"
           />
         </label>
 
@@ -103,6 +111,7 @@ class Form extends React.Component {
           data-testid="save-button"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
+          name="isSaveButtonDisabled"
         >
           Salvar
         </button>
