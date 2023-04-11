@@ -4,8 +4,31 @@ import PropTypes from 'prop-types';
 class Form extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, /* hasTrunfo */ isSaveButtonDisabled,
+      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
       onInputChange, onSaveButtonClick } = this.props;
+
+    let superTryunfo;
+
+    if (hasTrunfo) {
+      superTryunfo = (
+        <p>
+          Você já tem um Super Trunfo em seu baralho
+        </p>);
+    } else {
+      superTryunfo = (
+        <label htmlFor="tryunfo">
+          Super Trybe Trunfo
+          <input
+            id="tryunfo"
+            type="checkbox"
+            data-testid="trunfo-input"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
+            name="trunfo"
+          />
+        </label>
+      );
+    }
 
     return (
       <form>
@@ -95,17 +118,7 @@ class Form extends React.Component {
           </select>
         </label>
 
-        <label htmlFor="tryunfo">
-          Super Trybe Trunfo
-          <input
-            id="tryunfo"
-            type="checkbox"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            name="trunfo"
-          />
-        </label>
+        {superTryunfo}
 
         <button
           data-testid="save-button"
@@ -129,7 +142,7 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  // hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
@@ -144,7 +157,7 @@ Form.defaultProps = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  // hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
