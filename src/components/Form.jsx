@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Form.css';
 
 class Form extends React.Component {
   render() {
@@ -52,11 +53,12 @@ class Form extends React.Component {
             value={ cardDescription }
             onChange={ onInputChange }
             name="description"
+            maxLength="210"
           />
         </label>
 
         <label htmlFor="attr1">
-          Attr01
+          Ataque
           <input
             id="attr1"
             type="number"
@@ -68,7 +70,7 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="attr2">
-          Attr02
+          Defesa
           <input
             id="attr2"
             type="number"
@@ -80,7 +82,7 @@ class Form extends React.Component {
         </label>
 
         <label htmlFor="attr3">
-          Attr03
+          Agilidade
           <input
             id="attr3"
             type="number"
