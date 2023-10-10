@@ -42,6 +42,7 @@ class Form extends React.Component {
             value={ cardName }
             onChange={ onInputChange }
             name="name"
+            maxLength="19"
           />
         </label>
 
@@ -53,45 +54,47 @@ class Form extends React.Component {
             value={ cardDescription }
             onChange={ onInputChange }
             name="description"
-            maxLength="210"
+            maxLength="150"
           />
         </label>
 
-        <label htmlFor="attr1">
-          Ataque
-          <input
-            id="attr1"
-            type="number"
-            data-testid="attr1-input"
-            value={ cardAttr1 }
-            onChange={ onInputChange }
-            name="attr1"
-          />
-        </label>
+        <div className="attrb">
+          <label htmlFor="attr1">
+            Ataque
+            <input
+              id="attr1"
+              type="number"
+              data-testid="attr1-input"
+              value={ cardAttr1 }
+              onChange={ onInputChange }
+              name="attr1"
+            />
+          </label>
 
-        <label htmlFor="attr2">
-          Defesa
-          <input
-            id="attr2"
-            type="number"
-            data-testid="attr2-input"
-            value={ cardAttr2 }
-            onChange={ onInputChange }
-            name="attr2"
-          />
-        </label>
+          <label htmlFor="attr2">
+            Defesa
+            <input
+              id="attr2"
+              type="number"
+              data-testid="attr2-input"
+              value={ cardAttr2 }
+              onChange={ onInputChange }
+              name="attr2"
+            />
+          </label>
 
-        <label htmlFor="attr3">
-          Agilidade
-          <input
-            id="attr3"
-            type="number"
-            data-testid="attr3-input"
-            value={ cardAttr3 }
-            onChange={ onInputChange }
-            name="attr3"
-          />
-        </label>
+          <label htmlFor="attr3">
+            Agilidade
+            <input
+              id="attr3"
+              type="number"
+              data-testid="attr3-input"
+              value={ cardAttr3 }
+              onChange={ onInputChange }
+              name="attr3"
+            />
+          </label>
+        </div>
 
         <label htmlFor="image">
           Imagem

@@ -2,6 +2,8 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
+import personagens from './data';
+import changeMe from './icons/change-me.gif';
 
 class App extends React.Component {
   constructor() {
@@ -10,6 +12,7 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
+    this.handleCards = this.handleCards.bind(this);
 
     this.state = {
       name: '',
@@ -17,7 +20,7 @@ class App extends React.Component {
       attr1: '',
       attr2: '',
       attr3: '',
-      image: '',
+      image: changeMe,
       rarity: 'Normal',
       trunfo: false,
       hasTrunfo: false,
@@ -56,6 +59,24 @@ class App extends React.Component {
 
     this.setState({
       isSaveButtonDisabled: !fullfilled,
+    });
+  }
+
+  handleCards(event) {
+    event.preventDefault();
+
+    personagens.forEach((personagem) => {
+      const { trunfo } = personagem;
+
+      if (trunfo) {
+        this.setState({
+          hasTrunfo: true,
+        });
+      }
+
+      this.setState((prevState) => ({
+        cards: [...prevState.cards, personagem],
+      }));
     });
   }
 
@@ -125,7 +146,7 @@ class App extends React.Component {
       image, rarity, trunfo, isSaveButtonDisabled, hasTrunfo, cards } = this.state;
     return (
       <main>
-        <h1>Tryunfo</h1>
+        <h1>Inuyasha Trunfo</h1>
         <section className="form-preview">
           <Form
             cardName={ name }
@@ -152,9 +173,12 @@ class App extends React.Component {
             cardTrunfo={ trunfo }
           />
         </section>
+
+        <button onClick={ this.handleCards } className="card-button">CARDS</button>
+
         <section className="card-list">
           {cards.map((card) => (
-            <div key={ card.name }>
+            <div key={ card.name } className="card-onlist">
               <Card
                 cardName={ card.name }
                 cardDescription={ card.description }
@@ -165,6 +189,7 @@ class App extends React.Component {
                 cardRare={ card.rare }
                 cardTrunfo={ card.trunfo }
                 key={ card.name }
+                className="card"
               />
               <button
                 data-testid="delete-button"

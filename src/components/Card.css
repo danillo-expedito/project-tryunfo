@@ -1,22 +1,23 @@
 card {
   align-items: center;
-  background-color: rgb(109, 157, 197);
-  border: 3px solid rgb(6, 141, 157);
+  background: linear-gradient(-45deg, #474c85, #565c9f, #888cbf, #888cbf, #474c85);
+  border: 3px solid black;
   border-radius: 6px;
+  box-shadow: 1px 2px 2px 1px rgb(7, 7, 7, 0.6);
   display: flex;
   flex-flow: column;
-  height: 70vh;
+  height: 410px;
   justify-content: space-around;
-  width: 25%;
+  width: 240px;
 }
 
 .card-name {
   align-items: center;
-  background-color: rgb(128, 222, 217);
+  background: linear-gradient(-45deg, #80ded9, #2aa29e, white, #2aa29e, #2aa29e, #80ded9);
   display: flex;
   flex-flow: row nowrap;
   height: 6%;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 5px;
   margin-top: 5px;
   width: 100%;
@@ -25,19 +26,17 @@ card {
 
 .card-name h3 {
   font-size: 16px;
-  margin-left: 20px;
+  font-weight: 500;
 }
 
 .hidden {
-  color: rgb(128, 222, 217);
+  color: rgb(128, 222, 217, 0);
+  font-size: 1px;
 }
 
-.card-name p {
-  margin-right: 20px;
-}
 
 card img {
-  background-color: white;
+  background-color: whitesmoke;
   border: 1px solid rgb(6, 141, 157);
   border-radius: 6px;
   height: 45%;
@@ -85,7 +84,7 @@ card img {
 
 .att-name {
   align-items: center;
-  background-color: rgb(128, 222, 217, 0.6);
+  background: linear-gradient(-45deg, #80ded9, #2aa29e, #80ded9);
   border: 1px solid rgb(6, 141, 157);
   border-radius: 200px;
   color: white;
