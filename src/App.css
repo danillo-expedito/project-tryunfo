@@ -34,6 +34,14 @@ h1 {
   width: 200px;
 }
 
+.card-button:hover {
+  cursor: pointer;
+}
+
+.card-button:active {
+  box-shadow: none;
+}
+
 .card-list {
   align-items: center;
   display: flex;
@@ -60,4 +68,8 @@ h1 {
   border-radius: 4px;
   color: white;
   margin-top: 6px;
+}
+
+.card-onlist button:hover {
+  cursor: pointer;
 }

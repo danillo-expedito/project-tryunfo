@@ -66,3 +66,7 @@ form button {
   height: 5vh;
   width: 260px;
 }
+
+form button:hover {
+  cursor: pointer;
+}
